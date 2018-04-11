@@ -1,0 +1,68 @@
+<html>
+	<head>
+		<meta charset="utf-8" />
+  		<meta name="viewport" content="width=device-width, initial-scale=1">
+  		<link rel="stylesheet" href="themes/mytheme.css" />
+  		<link rel="stylesheet" href="themes/mytheme.min.css" />
+  		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile.structure-1.4.5.min.css" /> 
+  		<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script> 
+  		<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script> 
+
+		<!--<link rel="stylesheet" href="http://demos.jquerymobile.com/1.4.0/theme-classic/theme-classic.css" />-->
+	</head>
+	
+	<body>
+		
+		<body>
+		
+		<div data-theme="a" id= "pageOne" data-role="page" >
+			
+			<div data-role="header">
+				<h1>sign-in to proceed</h1>
+			</div>
+			<div role="main" class="ui-content">
+				<br>
+				<input type="text"  id="userID" placeholder="Enter User Name" />
+				<input type="password"  id="passwordID" placeholder="Enter Your Password" />
+				<br>
+				<input type="button" id="btn1" value="Login"/>
+				<a href="reg.html"><button>REGISTER</button></a>
+			</div>
+			
+			<div data-role="popup" id="popupBasic">
+				<p>Please Enter Valid User Name and Password.</p>
+			</div>
+			<script>
+			
+			
+			
+				$(document).ready(function() {
+						
+						$("#btn1").click(function() {
+							
+							var userName = $("#userID").val();
+							var password =  $("#passwordID").val();
+							
+							
+								
+							if(userName.toLowerCase() == "admin" && password == "abc123")
+							{
+								
+								
+								window.location.replace("home.html");
+
+							}else {
+								$("#popupBasic").popup("open");
+							}	
+							
+						});	
+				});	
+			</script>
+			
+		</div>
+	
+		
+		
+	</body>
+	
+</html>

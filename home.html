@@ -1,0 +1,70 @@
+<html>
+<head>				
+	<meta charset="utf-8" />
+ 	<meta name="viewport" content="width=device-width, initial-scale=1">
+ 	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile.structure-1.4.5.min.css" /> 
+	<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script> 
+ 	<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script> 
+</head>
+<body>
+ <div data-role="page" id="pageOne">
+ <div data-role="header">
+ 	<div data-role="tabs" id="tabs">
+  <div data-role="navbar">
+ <ul>
+<li><a href="#two"  data-ajax="false">MOBILES</a></li>
+<li><a href="#one" data-ajax="false">LAPTOPS</a></li>
+</ul>
+</div>
+<div id="one" class="ui-body-d ui-content">
+<ul data-role="listview" data-inset="true" >
+
+</ul>
+</div>
+<div id="two" class="ui-body-d ui-content">
+<ul data-role="listview" data-inset="true" >
+
+</ul>
+</div>
+
+</div>
+<script>
+$(document).on("pageinit", "#pageOne", function()
+	{
+		$.get("laptops.txt",function(data)
+	{
+		var items=data.split(',');
+		for(var i=0;i<items.length;)
+	{
+		var a=items[i+1];
+		var b=a+'.html';
+		$("#one ul").append('<li> <a href='+b+'> <img src='+items[i]+'><h2>'+items[i+1]+'</h2>'+items[i+2]+'<p>'+items[i+3]+'</p></a></li>');
+		i=i+4;
+		$('#one ul').listview('refresh');
+	}
+	});});
+	$(document).on("pageinit", "#pageOne", function()
+	{
+
+ 		$.get("mobiles.txt",function(data){
+ 		var items=data.split(',');
+		for(var i=0;i<items.length;)
+		{
+			var c=items[i+1];
+			var d=c+'.html';
+		$("#two ul").append('<li> <a href='+d+'> <img src='+items[i]+'><h2>'+items[i+1]+'</h2>'+items[i+2]+'<p>'+items[i+3]+'</p></a></li>');
+		i=i+4;
+		$('#two ul').listview('refresh');
+	}
+});
+});
+</script>
+<footer>
+	<button onclick="window.location.href='screen.html'">WELCOME</button>
+</footer>
+</body>
+</html>
+
+
+   

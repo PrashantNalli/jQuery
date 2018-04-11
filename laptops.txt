@@ -1,0 +1,1 @@
+lenovo.jpg,lenovo,$1700,available-5,dell.jpg,dell,$1200,available-6,asus.jpg,asus,$1400,available-8
